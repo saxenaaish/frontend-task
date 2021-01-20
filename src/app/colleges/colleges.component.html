@@ -1,0 +1,62 @@
+<section class="collegeDunia">
+  <div class="container">
+    <ng-container>
+      <div class="col">
+        <div class="">
+          <p class="sub-title mt-4">Colleges in North India</p>
+          <div class="row" >
+            <div class="clg1" *ngFor="let detail of collegeData ;  let i = index" [attr.data-index]="i" infiniteScroll (scrolled)="onScroll(i)">
+              <div class="Vector-Smart-Object"  *ngIf="detail.promoted == true">
+                <label class="promoted" for="text">Promoted</label>
+                <span></span>
+              </div>
+              <div class="border rounded collegeCards content-box">
+                <div class="Rectangle-3">
+                  <span class="rating">{{detail.rating}}</span><br>
+                  <span class="ratingRemark">{{detail.rating_remarks}}</span>
+                </div>
+                <span class="Rectangle-2">{{detail.tags[0]}}</span>
+                <span class="Rectangle-1">{{detail.tags[1]}}</span>
+                <span class="ranking">#{{detail.ranking}}</span>
+                <div class="imgOverlay">
+                  <div id="text"></div>
+                </div>
+                <img class="collegeImg" src="../../assets/images/college_01.jpg">
+                <div class="collegeInfo pb-12">
+                  <h4 class="collegeName pl-12 mb-4">{{detail.college_name}}</h4>
+                  <div class="starRating">
+                    <star-rating value={{detail.rating}} totalstars="5" checkedcolor="#444444" uncheckedcolor="#b9b9b9"
+                      size="14px" readonly="true"></star-rating>
+                  </div>
+                  <div class="nearByMetro pl-12 mb-4">{{detail.nearest_place[0]}} |<span
+                      class="distanceByBus">{{detail.nearest_place[1]}}</span></div>
+                  <div class="pl-12 mb-4"><span class="percent">93% Match
+                      :</span><span>{{detail.famous_nearest_places}}</span>
+                  </div>
+                  <div class="Rectangle-4"><label class="offerText mar-4">{{detail.offertext}}</label></div>
+                </div>
+                <div class="collegeFees">
+                  <div class="discount">20
+                    <span></span>
+                  </div>
+                  <p class="prc">
+                    <span>
+                      <label class="originalFees">&#8377;{{detail.original_fees}}</label>
+                      <br>
+                      <strong class="discountedFees">&#8377;{{detail.discounted_fees}}</strong>
+                    </span>
+                    <br>
+                    <span class="feesCycle">{{detail.fees_cycle}}</span>
+                  </p>
+                </div>
+                <div class="amenties">{{detail.amenties[0]}} +  {{detail.amenties[1]}}</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+  </div>
+</section>
